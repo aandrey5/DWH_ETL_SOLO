@@ -59,9 +59,9 @@ CREATE TABLE dwh.rnc (
         net_grotex_ru Nullable(String),
         amount_ru Nullable(Float64),
         amount_recalc_ru Nullable(Float64),
-        summa_local_ru Nullable(Float64)
+        summa_local_ru Nullable(Float64))
 
-) ENGINE = MergeTree() 
+ ENGINE = MergeTree() 
 PARTITION BY period_month_ru
 ORDER BY (period_year_ru, period_month_ru) SAMPLE BY period_month_ru SETTINGS index_granularity=8192;
 
