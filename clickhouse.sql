@@ -1,4 +1,15 @@
-CREATE TABLE rnc (
+--CREATE DATABASE dwh_for_bi
+--ENGINE = MaterializedPostgreSQL('10.128.100.98:5432', 'dwh', 'postgres', '40375mXfgbob')
+--
+--SETTINGS materialized_postgresql_max_block_size = 65536,
+--         materialized_postgresql_tables_list = 'sales_db_copy',
+--        materialized_postgresql_allow_automatic_update = 1,
+--
+--SELECT * FROM dwh.sales_db_copy;
+
+
+--
+CREATE TABLE dwh.rnc (
         type_function_ru Nullable(String),
         Federal_districts_ru Nullable(String),
         subjects2_ru Nullable(String),
@@ -41,15 +52,22 @@ CREATE TABLE rnc (
         distrib_ish_ru Nullable(String),
         tms_grotex_ru Nullable(String),
         prep_ish_ru Nullable(String),
-        period_year_ru Nullable(FixedString(10)),
+        period_year_ru FixedString(10),
         period_quarter_ru Nullable(FixedString(10)),
-        period_month_ru Nullable(FixedString(10)),
+        period_month_ru FixedString(10),
         period_month_start_ru Nullable(FixedString(20)),
         net_grotex_ru Nullable(String),
         amount_ru Nullable(Float64),
         amount_recalc_ru Nullable(Float64),
-        summa_local_ru Nullable(Float64),
+        summa_local_ru Nullable(Float64)
 
-) ENGINE MergeTree() 
+) ENGINE = MergeTree() 
 PARTITION BY period_month_ru
-ORDER BY (period_year_ru, period_month_ru, period_month_ru) SAMPLE BY period_month_ru SETTINGS index_granularity=8192;
+ORDER BY (period_year_ru, period_month_ru) SAMPLE BY period_month_ru SETTINGS index_granularity=8192;
+
+
+--drop table dwh.rnc;
+
+    
+
+
