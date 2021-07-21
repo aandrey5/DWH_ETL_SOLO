@@ -68,6 +68,8 @@ ORDER BY (period_year_ru, period_month_ru) SAMPLE BY period_month_ru SETTINGS in
 
 --drop table dwh.rnc;
 
+clickhouse-client --format_csv_delimiter=";" --input_format_with_names_use_header=0 --query="INSERT INTO dwh.rnc FORMAT CSVWithNames" < 01.03.2021-31.05.2021.csv
+
     
 
 
