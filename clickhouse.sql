@@ -70,6 +70,15 @@ ORDER BY (period_year_ru, period_month_ru) SAMPLE BY period_month_ru SETTINGS in
 
 clickhouse-client --format_csv_delimiter=";" --input_format_with_names_use_header=0 --query="INSERT INTO dwh.rnc FORMAT CSVWithNames" < 01.03.2021-31.05.2021.csv
 
+try invisible character
+
+--format_csv_delimiter=$'\x0B'
+
+and
+--format_csv_allow_single_quotes=0
+or
+--format_csv_allow_double_quotes=0
+
     
 
 
