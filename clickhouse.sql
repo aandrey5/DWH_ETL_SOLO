@@ -21,7 +21,7 @@ CREATE TABLE dwh.rnc (
         aptNet_ru Nullable(String),
         aptNet2_ru Nullable(String),
         aptAdress_ru Nullable(String),
-        apt_inn_ru Nullable(FixedString(20)),
+        apt_inn_ru Nullable(FixedString(100)),
         apt_inlaw_ru Nullable(String),
         aptId_ru Nullable(String),
         TMS_ru Nullable(String),
