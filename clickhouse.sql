@@ -79,6 +79,13 @@ and
 or
 --format_csv_allow_double_quotes=0
 
+-- control statement
+
+select  period_month_start_ru , TMS_ru, sum(amount_recalc_ru)  from dwh.rnc 
+where type_function_ru='Продажи'
+GROUP by period_month_start_ru , TMS_ru
+order by period_month_start_ru, TMS_ru 
+;
     
 
 
