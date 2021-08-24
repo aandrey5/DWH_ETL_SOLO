@@ -25,7 +25,7 @@ def Task10_test():
   @task()
   def test_connection():
 
-    logging.info(f'postgresql://{connection_input.login}:{connection_input.password}@10.128.100.98/dwh')
+    logging.info(f'postgresql://{connection_input.login}:{connection_input.password}@{connection_input.host}/{connection_input.schema}')
     return 1
 
 
