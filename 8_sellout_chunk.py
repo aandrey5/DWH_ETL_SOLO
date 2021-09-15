@@ -86,7 +86,7 @@ def Task9_Sellout_to_Dwh_chunk3():
             db_float_col = ['price']
 
             # create sql engine for sqlalchemy
-            db_string_airflow = 'postgresql://airflow_xcom:1q2w3e4r5T@10.128.100.98/dwh'
+            db_string_airflow = 'postgresql://*********:************@*********/dwh'
             engine = create_engine(db_string_airflow, paramstyle="format")
             # read dataframe
             df = pd.read_csv(f'/home/solopharm/airflow/sales_data/{sourcename}',
